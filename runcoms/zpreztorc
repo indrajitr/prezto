@@ -29,15 +29,29 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
 # Set the Prezto modules to load (browse modules).
 # The order matters.
+# The last four should be 'autosuggestions', 'syntax-highlighting',
+# 'history-substring-search' and 'prompt' in that relative order.
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
+  'tmux' \
   'editor' \
   'history' \
   'directory' \
   'spectrum' \
+  'gnu-utility' \
   'utility' \
+  'command-not-found' \
+  'osx' \
+  'homebrew' \
+  'archive' \
+  'git' \
+  'rsync' \
+  'node' \
+  'python' \
+  'ruby' \
   'completion' \
+  'fasd' \
   'history-substring-search' \
   'prompt'
 
