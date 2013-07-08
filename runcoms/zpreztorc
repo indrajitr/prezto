@@ -50,6 +50,7 @@ zstyle ':prezto:load' pmodule \
   'node' \
   'python' \
   'ruby' \
+  'java' \
   'completion' \
   'fasd' \
   'autosuggestions' \
