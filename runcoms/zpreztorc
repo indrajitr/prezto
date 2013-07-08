@@ -45,6 +45,7 @@ zstyle ':prezto:load' pmodule \
   'ruby' \
   'node' \
   'python' \
+  'java' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
