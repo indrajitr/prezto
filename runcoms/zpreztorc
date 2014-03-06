@@ -31,6 +31,7 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
+  'tmux' \
   'editor' \
   'history' \
   'directory' \
