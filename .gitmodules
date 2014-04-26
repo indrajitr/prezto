@@ -31,3 +31,6 @@
 [submodule "modules/completion/external-misc/curl"]
 	path = modules/completion/external-misc/curl
 	url = https://github.com/Valodim/zsh-curl-completion.git
+[submodule "modules/completion/external-misc/grunt"]
+	path = modules/completion/external-misc/grunt
+	url = https://github.com/yonchu/grunt-zsh-completion.git
