@@ -12,7 +12,7 @@ if [[ "$TERM" == 'dumb' ]]; then
 fi
 
 # Add zsh-completions to $fpath.
-fpath=("${0:h}/external/src" "${0:h}/external-misc/curl" "${0:h}/external-misc/grunt" $fpath)
+fpath=("${0:h}/external/src" "${0:h}"/external-misc/*(/FN) $fpath)
 
 #
 # Options
