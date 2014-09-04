@@ -31,7 +31,12 @@ if is-at-least 3.1 ${"$(rsync --version 2>&1)"[(w)3]}; then
   # macOS Enhancements
   # https://bombich.com/kb/ccc5/credits
   if is-darwin && grep -q 'file-flags' <(rsync --help 2>&1); then
-    _rsync_cmd="${_rsync_cmd} --crtimes --fileflags --force-change"
+    _rsync_cmd_osx="${_rsync_cmd} --crtimes --fileflags --force-change"
+    alias rsync-copy-osx="${_rsync_cmd_osx}"
+    alias rsync-move-osx="${_rsync_cmd_osx} --remove-source-files"
+    alias rsync-update-osx="${_rsync_cmd_osx} --update"
+    alias rsync-synchronize-osx="${_rsync_cmd_osx} --update --delete"
+    unset _rsync_cmd_osx
   fi
 fi
 
