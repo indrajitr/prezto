@@ -21,15 +21,20 @@ if grep -q 'xattrs' <(rsync --help 2>&1); then
   _rsync_cmd="${_rsync_cmd} --acls --xattrs"
 fi
 
-# macOS and HFS+ Enhancements
-# http://help.bombich.com/kb/overview/credits#opensource
-if [[ "$OSTYPE" == darwin* ]] && grep -q 'file-flags' <(rsync --help 2>&1); then
-  _rsync_cmd="${_rsync_cmd} --crtimes --fileflags --protect-decmpfs --force-change"
-fi
-
 alias rsync-copy="${_rsync_cmd}"
 alias rsync-move="${_rsync_cmd} --remove-source-files"
 alias rsync-update="${_rsync_cmd} --update"
 alias rsync-synchronize="${_rsync_cmd} --update --delete"
+
+# Mac OS X and HFS+ Enhancements
+# http://help.bombich.com/kb/overview/credits#opensource
+if [[ "$OSTYPE" == darwin* ]] && grep -q 'file-flags' <(rsync --help 2>&1); then
+  _rsync_cmd_osx="${_rsync_cmd} --crtimes --fileflags --protect-decmpfs --force-change"
+  alias rsync-copy-osx="${_rsync_cmd_osx}"
+  alias rsync-move-osx="${_rsync_cmd_osx} --remove-source-files"
+  alias rsync-update-osx="${_rsync_cmd_osx} --update"
+  alias rsync-synchronize-osx="${_rsync_cmd_osx} --update --delete"
+  unset _rsync_cmd_osx
+fi
 
 unset _rsync_cmd
