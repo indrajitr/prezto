@@ -35,7 +35,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
     if (( $? == 0 )); then
       # TODO: 'jenv add' and 'jenv rehash' at startup
       # jenv add "$(/usr/libexec/java_home -v "${jdk}" 2> /dev/null)"
-      export JAVA_HOME_$(echo "${jdk}" | tr -d '.')="$(/usr/libexec/java_home -v "${jdk}" 2> /dev/null)"
+      export JAVA_HOME_${jdk//\./}="$(/usr/libexec/java_home -v "${jdk}" 2> /dev/null)"
     fi
   done
 
