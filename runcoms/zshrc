@@ -11,3 +11,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Set NO_NOMATCH to honor a caret in commands (e.g. `git reset HEAD^^`).
+# Doing `setopt NO_NOMATCH` or `unsetopt nomatch` passes the bad match on to
+# the command.
+# Alternately, you can do `git reset HEAD\^\^` which would be bit clunky.
+#
+# See: https://github.com/robbyrussell/oh-my-zsh/issues/449#issuecomment-6973425
+#      https://github.com/archfear/prezto/commit/3027fbd1a813fcb7d3009632c7885fd929cf2058
+unsetopt nomatch
