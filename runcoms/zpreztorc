@@ -50,6 +50,7 @@ zstyle ':prezto:load' pmodule \
   'java' \
   'syntax-highlighting' \
   'history-substring-search' \
+  'autosuggestions' \
   'prompt'
 
 #
@@ -57,7 +58,8 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the query found color.
-# zstyle ':prezto:module:autosuggestions:color' found ''
+# (bg=bright black,fg=red), suitable for Solarized Dark terminal
+zstyle ':prezto:module:autosuggestions:color' found 'bg=8,fg=1'
 
 #
 # Completions
