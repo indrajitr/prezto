@@ -48,6 +48,7 @@ zstyle ':prezto:load' pmodule \
   'node' \
   'python' \
   'java' \
+  'command-not-found' \
   'syntax-highlighting' \
   'history-substring-search' \
   'autosuggestions' \
