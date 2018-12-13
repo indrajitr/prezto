@@ -49,6 +49,20 @@ path=(
 )
 
 #
+# Curl
+#
+
+# Homebrewed curl is keg-only and refused to link to usual path.
+# Adjust path and fpath explicitly.
+
+if (( $+commands[brew] )) && \
+  [[ -d "${curl_prefix::="$(brew --prefix 2> /dev/null)"/opt/curl}" ]]; then
+  path=("${curl_prefix}"/bin $path)
+  fpath=("${curl_prefix}"/share/zsh/site-functions $fpath)
+  unset curl_prefix
+fi
+
+#
 # Less
 #
 
