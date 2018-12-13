@@ -49,6 +49,18 @@ path=(
 )
 
 #
+# Curl
+#
+
+# Homebrewed curl is keg-only and is not included in default path array.
+# Add it to path explicitly.
+if (( $+commands[brew] )) \
+      && [[ -d "${curl_prefix::="$(brew --prefix 2> /dev/null)"/opt/curl}" ]]; then
+  path=($curl_prefix/bin $path)
+fi
+unset curl_prefix
+
+#
 # Less
 #
 
