@@ -1,27 +1,24 @@
-Rsync
-=====
+# Rsync
 
 Defines [rsync][1] aliases.
 
 macOS users are encouraged to use [Bombich's rsync][2], which has HFS+
 enhancements.
 
-Aliases
--------
+## Aliases
 
-  - `rsync-copy` copies files and directories from *source* to *destination*.
-  - `rsync-move` moves files and directories from *source* to *destination*.
-  - `rsync-update` updates files and directories on *destination*.
-  - `rsync-synchronize` synchronizes files and directories between *source* and
-    *destination*.
+- `rsync-copy` copies files and directories from *source* to *destination*.
+- `rsync-move` moves files and directories from *source* to *destination*.
+- `rsync-update` updates files and directories on *destination*.
+- `rsync-synchronize` synchronizes files and directories between *source* and
+  *destination*.
 
-Authors
--------
+## Authors
 
 *The authors of this module should be contacted via the [issue tracker][3].*
 
-  - [Sorin Ionescu](https://github.com/sorin-ionescu)
+- [Sorin Ionescu](https://github.com/sorin-ionescu)
 
-[1]: http://rsync.samba.org
+[1]: https://rsync.samba.org
 [2]: https://bombich.com/kb/ccc5/credits#rsync
 [3]: https://github.com/sorin-ionescu/prezto/issues
