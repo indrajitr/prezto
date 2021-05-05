@@ -2,6 +2,9 @@
 
 Provides functions to create, list, and extract archives.
 
+This module must be loaded **before** the *completion* module so that the
+provided completion definitions are loaded.
+
 ## Functions
 
 - `archive` creates an archive based on the provided archive name.

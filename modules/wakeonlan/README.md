@@ -10,7 +10,7 @@ that describes the device, such as its hostname.
 
 Each file should contain a line with the MAC address of the target device and
 the network broadcast address. For instance, there might be a file
-`*~/.wakeonlan/leto`* with the following contents:
+*`~/.wakeonlan/leto`* with the following contents:
 
 ```conf
 00:11:22:33:44:55:66 192.168.0.255

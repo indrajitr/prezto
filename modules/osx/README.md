@@ -2,13 +2,17 @@
 
 Defines [macOS][1] aliases and functions.
 
+This module must be loaded **before** the *completion* module so that the
+provided completion definitions are loaded.
+
 ## Settings
 
 ### Dash Keyword
 
 To change the keyword used by `mand` to open man pages in [*Dash.app*][2] from
-its default value of 'manpages', add the following line in *~/.zpreztorc* and
-replace the **keyword** with the one configured in [*Dash.app*][2].
+its default value of 'manpages', add the following line in
+*`${ZDOTDIR:-$HOME}/.zpreztorc`* and replace the **keyword** with the one
+configured in [*Dash.app*][2].
 
 ```sh
 zstyle ':prezto:module:osx:man' dash-keyword 'keyword'

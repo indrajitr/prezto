@@ -15,11 +15,12 @@ supported by Archlinux. It is currently recommended to manually build AUR
 packages using the [provided instructions][3]. The [aurutils][4] project has a
 set of small utilities to make this easier.
 
-To enable a Pacman frontend, add the following line to *~/.zpreztorc*,
-substituting *pacman_frontend* with the name of the frontend:
+To enable a different Pacman frontend, add the following to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*, and replace `'<frontend>'` with the name
+of the preferred frontend.
 
 ```sh
-zstyle ':prezto:module:pacman' frontend 'pacman_frontend'
+zstyle ':prezto:module:pacman' frontend '<frontend>'
 ```
 
 ## Aliases

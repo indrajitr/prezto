@@ -9,14 +9,14 @@ Defines [*tmux*][1] aliases and provides for auto launching it at start-up.
 Starts a tmux session automatically when Zsh is launched.
 
 To enable this feature when launching Zsh in a local terminal, add the following
-line to *~/.zpreztorc*:
+line to *`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:tmux:auto-start' local 'yes'
 ```
 
 To enable this feature when launching Zsh in a SSH connection, add the following
-line to *~/.zpreztorc*:
+line to *`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:tmux:auto-start' remote 'yes'
@@ -43,7 +43,7 @@ set-option -g destroy-unattached [on | off]
 #### iTerm2 Integration
 
 [iTerm2][6] offers significant integration with tmux. This can be enabled by
-adding the following line to *~/.zpreztorc*:
+adding the following line to *`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:tmux:iterm' integrate 'yes'

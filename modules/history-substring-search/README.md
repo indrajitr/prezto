@@ -19,7 +19,7 @@ regulations. This module will be synchronized against it.
 ### Case Sensitivity
 
 To enable case-sensitivity for this module only, add the following line to
-*~/.zpreztorc*:
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:history-substring-search' case-sensitive 'yes'
@@ -30,26 +30,29 @@ zstyle ':prezto:module:history-substring-search' case-sensitive 'yes'
 If colors are enabled, *history-substring-search* will automatically highlight
 positive results.
 
-To enable highlighting for this module only, add the following line to
-*~/.zpreztorc*:
+To disable highlighting for this module only, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
-zstyle ':prezto:module:history-substring-search' color 'yes'
+zstyle ':prezto:module:history-substring-search' color 'no'
 ```
 
-To set the query found color, add the following line to *~/.zpreztorc*:
+To set the query found color, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:history-substring-search:color' found ''
 ```
 
-To set the query not found color, add the following line to *~/.zpreztorc*:
+To set the query not found color, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:history-substring-search:color' not-found ''
 ```
 
-To set the search globbing flags, add the following line to *~/.zpreztorc*:
+To set the search globbing flags, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:history-substring-search' globbing-flags ''

@@ -6,19 +6,19 @@ Loads prompt [themes][1].
 
 ### Prompt Theme
 
-To select a prompt theme, add the following to *~/.zpreztorc*, and replace
-**name** with the name of the theme you wish to load. Setting it to **random**
-will load a random theme.
+To select a prompt theme, add the following to *`${ZDOTDIR:-$HOME}/.zpreztorc`*,
+and replace `'<name>'` with the name of the theme you wish to load. Setting it
+to `'random'` will load a random theme every time.
 
 ```sh
-zstyle ':prezto:module:prompt' theme 'name'
+zstyle ':prezto:module:prompt' theme '<name>'
 ```
 
 ### Prompt Display Length
 
 To change working directory prompt display length from 'short', set the
 following to 'long' (without `~` expansion) or 'full' (with `~` expansion) in
-*~/.zpreztorc*.
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*.
 
 ```sh
 zstyle ':prezto:module:prompt' pwd-length 'short'
@@ -43,7 +43,7 @@ directory.
 ### Required Variables
 
 To ensure that your function works with the editor-info module you'll need to
-set the following variable in *~/.zpreztorc*:
+set the following variable in *`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 # Tell prezto we can manage this prompt

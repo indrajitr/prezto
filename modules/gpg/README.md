@@ -8,7 +8,7 @@ Provides for an easier use of [GPG][1] by setting up [gpg-agent][2].
 
 To enable OpenSSH Agent protocol emulation, and make `gpg-agent` a drop-in
 replacement for `ssh-agent`, add the following line to
-*`~/.gnupg/gpg-agent.conf`*:
+*`$GNUPGHOME/gpg-agent.conf`* or *`$$HOME/.gnupg/gpg-agent.conf`*:
 
 ```conf
 enable-ssh-support

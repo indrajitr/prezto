@@ -1,6 +1,6 @@
 # Modules
 
-Load modules in *~/.zpreztorc*. The order matters.
+Load modules in *`${ZDOTDIR:-$HOME}/.zpreztorc`*. The order matters.
 
 ```sh
 zstyle ':prezto:load' pmodule 'environment' 'terminal'

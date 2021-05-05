@@ -2,41 +2,54 @@
 
 Defines general aliases and functions.
 
+This module must be loaded **before** the *completion* module so that the
+provided completion definitions are loaded.
+
 ## Settings
 
 ### Highlighting
 
-If you have enabled color globally in *~/.zpreztorc*, you may disable it for
-certain commands.
+If you have enabled color globally in *`${ZDOTDIR:-$HOME}/.zpreztorc`*, you may
+disable it selectively for certain commands.
 
-To disable `ls` color, add the following line to *~/.zpreztorc*; when coloring
-is disabled, type indicators (`\*`, `/`, `=>`, `@`, `=`, `|`, `%`) will be
-appended to entries.
+To disable `ls` color, add the following to *`${ZDOTDIR:-$HOME}/.zpreztorc`*.
+When coloring is disabled, type indicators (`\*`, `/`, `=>`, `@`, `=`, `|`, `%`)
+will be appended to entries.
 
 ```sh
 zstyle ':prezto:module:utility:ls' color 'no'
 ```
 
 To disable GNU coreutils `ls` to list directories grouped first, add the
-following line to *~/.zpreztorc*:
+following line to *`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:utility:ls' dirs-first 'no'
 ```
 
-To disable `diff` highlighting, add the following line to *~/.zpreztorc*:
+To disable `grep` highlighting, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
+
+```sh
+zstyle ':prezto:module:utility:grep' color 'no'
+```
+
+To disable `diff` highlighting, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:utility:diff' color 'no'
 ```
 
-To disable `wdiff` highlighting, add the following line to *~/.zpreztorc*:
+To disable `wdiff` highlighting, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:utility:wdiff' color 'no'
 ```
 
-To disable `make` highlighting, add the following line to *~/.zpreztorc*:
+To disable `make` highlighting, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:utility:make' color 'no'
@@ -61,7 +74,8 @@ zstyle ':prezto:module:utility:make' color 'no'
 - `mysql`
 - `rm`
 
-To disable all spelling corrections, add the following line to *~/.zpreztorc*:
+To disable all spelling corrections, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:utility' correct 'no'
@@ -131,7 +145,7 @@ zstyle ':prezto:module:utility' correct 'no'
 
 By default, `cp`,`ln`, `mv` and `rm` are aliased to their interactive variants.
 If this is not desired, it can be disabled by adding the following line to
-*~/.zpreztorc*:
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:utility' safe-ops 'no'.
@@ -168,7 +182,7 @@ In addition, the following aliases have been added:
 
 - `diff` highlights diff output (requires `colordiff`).
 - `make` highlights make output (requires `colormake`).
-- `wdiff` highlights wdiff output (requires `wdiff `or `git`).
+- `wdiff` highlights wdiff output (requires `wdiff` or `git`).
 
 ### Resource usage
 

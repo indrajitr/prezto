@@ -26,13 +26,14 @@ If colors are enabled, *autosuggestions* will automatically highlight
 positive results.
 
 To enable highlighting for this module only, add the following line to
-*~/.zpreztorc*:
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:autosuggestions' color 'yes'
 ```
 
-To set the query found color, add the following line to *~/.zpreztorc*:
+To set the query found color, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:autosuggestions:color' found ''

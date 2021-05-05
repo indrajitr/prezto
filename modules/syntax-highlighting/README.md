@@ -2,7 +2,7 @@
 
 Integrates [zsh-syntax-highlighting][1] into Prezto.
 
-This module should be loaded before the *prompt* module.
+This module must be loaded **before** the *prompt* module.
 
 Additionally, if this module is used in conjunction with the
 *history-substring-search* module, this module must be loaded **before** the
@@ -22,7 +22,7 @@ This module will be synchronized against it.
 ### Highlighting
 
 To enable highlighting for this module only, add the following line to
-*~/.zpreztorc*:
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:syntax-highlighting' color 'yes'
@@ -33,7 +33,8 @@ zstyle ':prezto:module:syntax-highlighting' color 'yes'
 Syntax highlighting is accomplished by pluggable [highlighters][2]. This module
 only enables the *main* highlighter by default.
 
-To enable all highlighters, add the following to *~/.zpreztorc*:
+To enable all highlighters, add the following to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*.
 
 ```sh
 zstyle ':prezto:module:syntax-highlighting' highlighters \
@@ -50,7 +51,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 Each syntax highlighter defines styles used to highlight tokens.
 
 To highlight, for example, builtins, commands, and functions in blue instead of
-green, add the following to *~/.zpreztorc*:
+green, add the following to *`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:syntax-highlighting' styles \

@@ -15,8 +15,8 @@ This module must be loaded **before** the *utility* module.
 
 ### Prefix
 
-To use a different prefix, add the following to *~/.zpreztorc*, and replace 'g'
-with the desired prefix:
+To use a different prefix, add the following to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*, and replace `'g'` with the desired prefix.
 
 ```sh
 zstyle ':prezto:module:gnu-utility' prefix 'g'

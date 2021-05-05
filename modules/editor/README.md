@@ -14,17 +14,17 @@ Sets editor specific key bindings options and variables.
 
 ### Key bindings
 
-To enable key bindings, add the following to *~/.zpreztorc*, and replace
-'bindings' with 'emacs' or 'vi'.
+To enable key bindings, add the following to *`${ZDOTDIR:-$HOME}/.zpreztorc`*,
+and replace `'<bindings>'` with `'emacs'` or `'vi'`.
 
 ```sh
-zstyle ':prezto:module:editor' key-bindings 'bindings'
+zstyle ':prezto:module:editor' key-bindings '<bindings>'
 ```
 
 ### Dot Expansion
 
 To enable the auto conversion of .... to ../.., add the following to
-*~/.zpreztorc*.
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*.
 
 ```sh
 zstyle ':prezto:module:editor' dot-expansion 'yes'
@@ -32,8 +32,8 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 ### PS Context
 
-To enable the prompt context to be set, add the following to your
-*~/.zpreztorc*.
+To enable the prompt context to be set, add the following to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*.
 
 ```sh
 zstyle ':prezto:module:editor' ps-context 'yes'
@@ -83,9 +83,9 @@ Then add `$editor_info[context]`, where context is *keymap*, *insert*, or
 
 ### bindkey-all
 
-Provides a function `bindkey-all` which can be useful for checking how all of the
-keys are bound. Normal `bindkey` command will only list the keys bound for one
-keymap, which is not as useful if you want to grep through the output. The
+Provides a function `bindkey-all` which can be useful for checking how all of
+the keys are bound. Normal `bindkey` command will only list the keys bound for
+one keymap, which is not as useful if you want to grep through the output. The
 keymap's names go to stderr so when you grep through bindkey-all's output you
 will still see the headings and can tell which keymap each binding goes to.
 

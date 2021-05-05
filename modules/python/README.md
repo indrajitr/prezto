@@ -6,13 +6,15 @@ Enables local Python and local Python package installation.
 
 This module supports virtual environments from conda and
 [*virtualenvwrapper*][2]. By default, only *virtualenvwrapper* is enabled. To
-disable *virtualenvwrapper*, add the following to *~/.zpreztorc*.
+disable *virtualenvwrapper*, add the following to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*.
 
 ```sh
 zstyle ':prezto:module:python' skip-virtualenvwrapper-init 'on'
 ```
 
-Conda support is enabled by adding the following to *~/.zpreztorc*.
+Conda support is enabled by adding the following to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*.
 
 ```sh
 zstyle ':prezto:module:python' conda-init 'on'
@@ -30,10 +32,10 @@ execution of `pyenv`.
 
 ### Usage
 
-Install Python versions with `pyenv install` into *~/.pyenv/versions*.
+Install Python versions with `pyenv install` into *`~/.pyenv/versions`*.
 
 This will be loaded automatically if pyenv is installed to `$PYENV_ROOT`,
-*~/.pyenv*, or if the `pyenv` command is on the path.
+*`~/.pyenv`*, or if the `pyenv` command is on the path.
 
 ## Local Package Installation
 
@@ -59,10 +61,11 @@ provides convenient shell functions to create, switch, and manage them.
 
 Install `virtualenvwrapper`.
 
-Virtual environments are stored in *~/.virtualenvs*.
+Virtual environments are stored in *`~/.virtualenvs`*.
 
-There are configuration variables that have to be set to enable certain features.
-If you wish to use these features, export the variables in [`zshenv`][6].
+There are configuration variables that have to be set to enable certain
+features. If you wish to use these features, export the variables in
+[*`${ZDOTDIR:-$HOME}/.zshenv`*][6].
 
 The variable `$PROJECT_HOME` tells `virtualenvwrapper` where to place project
 working directories. It must be set and the directory created before `mkproject`
@@ -154,4 +157,4 @@ python version/
 [3]: https://pypi.org/project/virtualenv/
 [4]: https://github.com/yyuu/pyenv
 [5]: https://github.com/sorin-ionescu/prezto/issues
-[6]: https://github.com/sorin-ionescu/prezto/blob/master/runcoms/zshenv
+[6]: ../../runcoms#zshenv

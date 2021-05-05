@@ -6,7 +6,8 @@ Provides for an easier use of [SSH][1] by setting up [*ssh-agent*][2].
 
 ### Identities
 
-To load multiple identities, add the following line to *~/.zpreztorc*:
+To load multiple identities, add the following line to
+*`${ZDOTDIR:-$HOME}/.zpreztorc`*:
 
 ```sh
 zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_dsa' 'id_github'

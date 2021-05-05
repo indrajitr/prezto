@@ -9,7 +9,7 @@ enables [*npm*][2] completion.
 home directory.
 
 This will be loaded automatically if nvm is installed in `$NVM_DIR`,
-*~/.nvm*, or nvm is installed with homebrew.
+*`~/.nvm`*, or nvm is installed with Homebrew.
 
 ## nodenv
 
@@ -18,7 +18,7 @@ Node versions. It is simple and predictable, Just Works, and is rock solid in
 production. nodenv is forked from the popular [*rbenv*][7].
 
 This will be loaded automatically if nodenv is installed in `$NODENV_ROOT`,
-*~/.nodenv*, or `nodenv` is on the path.
+*`~/.nodenv`*, or `nodenv` is on the path.
 
 ## Functions
 
