@@ -20,8 +20,9 @@ setopt BEEP                     # Beep on error in line editor.
 # Variables
 #
 
-# Treat these characters as part of a word.
-WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
+# Treat these characters as part of a word. Remove frequent word separators
+# from the existing default set (which is '*?_-.[]~=/&;!#$%^(){}<>').
+WORDCHARS=${WORDCHARS//[=\/]}
 
 # Use human-friendly identifiers.
 zmodload zsh/terminfo
