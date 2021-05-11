@@ -39,7 +39,7 @@ if [[ -S "$SSH_AUTH_SOCK" && "$SSH_AUTH_SOCK" != "$_ssh_agent_sock" ]]; then
 fi
 
 # Load identities.
-if ssh-add -l 2>&1 | grep -q 'The agent has no identities'; then
+if [[ ${(@M)${(f)"$(ssh-add -l 2>&1)"}:#The agent has no identities*} ]]; then
   zstyle -a ':prezto:module:ssh:load' identities '_ssh_identities'
   # ssh-add has strange requirements for running SSH_ASKPASS, so we duplicate
   # them here. Essentially, if the other requirements are met, we redirect stdin
