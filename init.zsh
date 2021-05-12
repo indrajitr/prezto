@@ -24,13 +24,13 @@ function zprezto-update {
   (
     function cannot-fast-forward {
       local STATUS="$1"
-      [[ -n "${STATUS}" ]] && printf "%s\n" "${STATUS}"
+      [[ -n "$STATUS" ]] && printf "%s\n" "$STATUS"
       printf "Unable to fast-forward the changes. You can fix this by "
-      printf "running\ncd '%s' and then\n'git pull' " "${ZPREZTODIR}"
+      printf "running\ncd '%s' and then\n'git pull' " "$ZPREZTODIR"
       printf "to manually pull and possibly merge in changes\n"
     }
-    cd -q -- "${ZPREZTODIR}" || return 7
-    local orig_branch="${$(command git symbolic-ref HEAD 2> /dev/null):t}"
+    cd -q -- "$ZPREZTODIR" || return 7
+    local orig_branch="${$(command git symbolic-ref HEAD 2> /dev/null)#refs/heads/}"
     if [[ "$orig_branch" == "master" ]]; then
       git fetch || return "$?"
       local UPSTREAM=$(git rev-parse '@{u}')
@@ -59,8 +59,8 @@ function zprezto-update {
         return 1
       fi
     else
-      printf "zprezto install at '%s' is not on the master branch " "${ZPREZTODIR}"
-      printf "(you're on '%s')\nUnable to automatically update.\n" "${orig_branch}"
+      printf "zprezto install at '%s' is not on the master branch " "$ZPREZTODIR"
+      printf "(you're on '%s')\nUnable to automatically update.\n" "orig_branch"
       return 1
     fi
     return 1
@@ -109,10 +109,10 @@ function pmodload {
       fi
 
       # Grab the full path to this module
-      pmodule_location=${locations[-1]}
+      pmodule_location=$locations[-1]
 
       # Add functions to $fpath.
-      fpath=(${pmodule_location}/functions(-/FN) $fpath)
+      fpath=($pmodule_location/functions(-/FN) $fpath)
 
       function {
         local pfunction
@@ -121,22 +121,22 @@ function pmodload {
         setopt LOCAL_OPTIONS EXTENDED_GLOB
 
         # Load Prezto functions.
-        for pfunction in ${pmodule_location}/functions/$~pfunction_glob; do
+        for pfunction in $pmodule_location/functions/$~pfunction_glob; do
           autoload -Uz "$pfunction"
         done
       }
 
-      if [[ -s "${pmodule_location}/init.zsh" ]]; then
-        source "${pmodule_location}/init.zsh"
-      elif [[ -s "${pmodule_location}/${pmodule}.plugin.zsh" ]]; then
-        source "${pmodule_location}/${pmodule}.plugin.zsh"
+      if [[ -s "$pmodule_location/init.zsh" ]]; then
+        source "$pmodule_location/init.zsh"
+      elif [[ -s "$pmodule_location/${pmodule}.plugin.zsh" ]]; then
+        source "$pmodule_location/${pmodule}.plugin.zsh"
       fi
 
       if (( $? == 0 )); then
         zstyle ":prezto:module:$pmodule" loaded 'yes'
       else
         # Remove the $fpath entry.
-        fpath[(r)${pmodule_location}/functions]=()
+        fpath[(r)$pmodule_location/functions]=()
 
         function {
           local pfunction
@@ -146,7 +146,7 @@ function pmodload {
           setopt LOCAL_OPTIONS EXTENDED_GLOB
 
           # Unload Prezto functions.
-          for pfunction in ${pmodule_location}/functions/$~pfunction_glob; do
+          for pfunction in $pmodule_location/functions/$~pfunction_glob; do
             unfunction "$pfunction"
           done
         }
@@ -163,9 +163,9 @@ function pmodload {
 
 # This finds the directory prezto is installed to so plugin managers don't need
 # to rely on dirty hacks to force prezto into a directory. Additionally, it
-# needs to be done here because inside the pmodload function ${0:h} evaluates to
+# needs to be done here because inside the pmodload function "$0:h" evaluates to
 # the current directory of the shell rather than the prezto dir.
-ZPREZTODIR=${0:h}
+ZPREZTODIR="$0:h"
 
 # Source the Prezto configuration file.
 if [[ -s "${ZDOTDIR:-$HOME}/.zpreztorc" ]]; then
