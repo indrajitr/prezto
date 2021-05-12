@@ -27,7 +27,7 @@ if [[ ! -S "$SSH_AUTH_SOCK" ]]; then
   # Start ssh-agent if not started.
   if ! ps -U "$LOGNAME" -o pid,ucomm | grep -q -- "${SSH_AGENT_PID:--1} ssh-agent"; then
     mkdir -p "$_ssh_agent_env:h"
-    eval "$(ssh-agent | sed '/^echo /d' | tee "$_ssh_agent_env")"
+    eval "$(print -l "${(@)${(f)"$(ssh-agent)"}:#echo *}" | tee "$_ssh_agent_env")"
   fi
 fi
 
