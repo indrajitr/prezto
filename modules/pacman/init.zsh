@@ -33,7 +33,7 @@ fi
 #
 
 # Pacman.
-alias pac="${_pacman_frontend}"
+alias pac="$_pacman_frontend"
 
 # Installs packages from repositories.
 alias paci="${_pacman_sudo}${_pacman_frontend} --sync"
@@ -48,22 +48,22 @@ alias pacx="${_pacman_sudo}${_pacman_frontend} --remove"
 alias pacX="${_pacman_sudo}${_pacman_frontend} --remove --nosave --recursive"
 
 # Displays information about a package from the repositories.
-alias pacq="${_pacman_frontend} --sync --info"
+alias pacq="$_pacman_frontend --sync --info"
 
 # Displays information about a package from the local database.
-alias pacQ="${_pacman_frontend} --query --info"
+alias pacQ="$_pacman_frontend --query --info"
 
 # Searches for packages in the repositories.
-alias pacs="${_pacman_frontend} --sync --search"
+alias pacs="$_pacman_frontend --sync --search"
 
 # Searches for packages in the local database.
-alias pacS="${_pacman_frontend} --query --search"
+alias pacS="$_pacman_frontend --query --search"
 
 # Lists orphan packages.
 alias pacman-list-orphans="${_pacman_sudo}${_pacman_frontend} --query --deps --unrequired"
 
 # Removes orphan packages.
-alias pacman-remove-orphans="${_pacman_sudo}${_pacman_frontend} --remove --recursive \$(${_pacman_frontend} --quiet --query --deps --unrequired)"
+alias pacman-remove-orphans="${_pacman_sudo}${_pacman_frontend} --remove --recursive \$($_pacman_frontend --quiet --query --deps --unrequired)"
 
 # Synchronizes the local package and Arch Build System databases against the
 # repositories using the asp tool.
