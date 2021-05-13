@@ -45,7 +45,7 @@ fi
 file="$3"
 
 if [[ -n "$url" ]]; then
-  url="${url}/tree/${reference}/${file}"
+  url="$url/tree/$reference/$file"
 
   if (( $+commands[$BROWSER] )); then
     "$BROWSER" "$url"

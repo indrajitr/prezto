@@ -186,12 +186,12 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias giX='git rm -rf --cached'
 
   # Log (l)
-  alias gl='git log --topo-order --pretty=format:"${_git_log_medium_format}"'
-  alias gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
-  alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
-  alias glo='git log --topo-order --pretty=format:"${_git_log_oneline_format}"'
-  alias glg='git log --topo-order --graph --pretty=format:"${_git_log_oneline_format}"'
-  alias glb='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
+  alias gl='git log --topo-order --pretty=format:"$_git_log_medium_format"'
+  alias gls='git log --topo-order --stat --pretty=format:"$_git_log_medium_format"'
+  alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"$_git_log_medium_format"'
+  alias glo='git log --topo-order --pretty=format:"$_git_log_oneline_format"'
+  alias glg='git log --topo-order --graph --pretty=format:"$_git_log_oneline_format"'
+  alias glb='git log --topo-order --pretty=format:"$_git_log_brief_format"'
   alias glc='git shortlog --summary --numbered'
   alias glS='git log --show-signature'
 
@@ -263,8 +263,8 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gtv='git verify-tag'
 
   # Working Copy (w)
-  alias gws='git status --ignore-submodules=${_git_status_ignore_submodules} --short'
-  alias gwS='git status --ignore-submodules=${_git_status_ignore_submodules}'
+  alias gws='git status --ignore-submodules=$_git_status_ignore_submodules --short'
+  alias gwS='git status --ignore-submodules=$_git_status_ignore_submodules'
   alias gwd='git diff --no-ext-diff'
   alias gwD='git diff --no-ext-diff --word-diff'
   alias gwr='git reset --soft'
