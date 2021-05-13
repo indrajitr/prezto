@@ -9,7 +9,7 @@ enables [*npm*][2] completion.
 home directory.
 
 This will be loaded automatically if nvm is installed in `$NVM_DIR`,
-*~/.nvm*, or nvm is installed with homebrew.
+*`$XDG_CONFIG_HOME/nvm`*, *`~/.nvm`*, or is installed with homebrew.
 
 ## nodenv
 
@@ -18,7 +18,7 @@ Node versions. It is simple and predictable, Just Works, and is rock solid in
 production. nodenv is forked from the popular [*rbenv*][7].
 
 This will be loaded automatically if nodenv is installed in `$NODENV_ROOT`,
-*~/.nodenv*, or `nodenv` is on the path.
+*`$XDG_CONFIG_HOME/nodenv`*, *`~/.nodenv`*, or `nodenv` is on the path.
 
 ## Functions
 
@@ -46,11 +46,12 @@ Then add `$node_info[version]` to either `$PROMPT` or `$RPROMPT` and call
 
 - [Sorin Ionescu](https://github.com/sorin-ionescu)
 - [Zeh Rizzatti](https://github.com/zehrizzatti)
+- [Indrajit Raychaudhuri](https://github.com/indrajitr)
 
 [1]: http://nodejs.org
 [2]: http://npmjs.org
 [3]: http://nodejs.org/api
 [4]: https://github.com/sorin-ionescu/prezto/issues
-[5]: https://github.com/creationix/nvm
+[5]: https://github.com/nvm-sh/nvm
 [6]: https://github.com/nodenv/nodenv
 [7]: https://github.com/sstephenson/rbenv
