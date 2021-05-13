@@ -22,7 +22,7 @@ EOF
   osascript 2> /dev/null <<EOF
     tell application "System Events"
       tell process "Terminal" to keystroke "t" using command down
-      tell application "Terminal" to do script "${command}" in front window
+      tell application "Terminal" to do script "$command" in front window
     end tell
 EOF
 }
@@ -35,7 +35,7 @@ EOF
         launch session "Default Session"
         set current_session to current session
         tell current_session
-          write text "${command}"
+          write text "$command"
         end tell
       end tell
     end tell
@@ -47,7 +47,7 @@ EOF
     tell application "iTerm2"
       tell current window
         create tab with default profile
-        tell current session to write text "${command}"
+        tell current session to write text "$command"
       end tell
     end tell
 EOF
