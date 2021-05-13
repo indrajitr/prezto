@@ -85,8 +85,8 @@ zle -N edit-command-line
 function bindkey-all {
   local keymap=''
   for keymap in $(bindkey -l); do
-    [[ "$#" -eq 0 ]] && printf "#### %s\n" "${keymap}" 1>&2
-    bindkey -M "${keymap}" "$@"
+    [[ "$#" -eq 0 ]] && printf "#### %s\n" "$keymap" 1>&2
+    bindkey -M "$keymap" "$@"
   done
 }
 # Exposes information about the Zsh Line Editor via the $editor_info associative
@@ -364,8 +364,8 @@ unbound_keys=(
   "${key_info[ControlPageDown]}"
 )
 for keymap in $unbound_keys; do
-  bindkey -M viins "${keymap}" _prezto-zle-noop
-  bindkey -M vicmd "${keymap}" _prezto-zle-noop
+  bindkey -M viins "$keymap" _prezto-zle-noop
+  bindkey -M vicmd "$keymap" _prezto-zle-noop
 done
 
 # Keybinds for all keymaps
