@@ -3,7 +3,8 @@
 Enhances the [Git][1] distributed version control system by providing aliases,
 functions and by exposing repository status information to prompts.
 
-Git **1.7.2** is the [minimum required version][7].
+Git **2.11** is the minimum required version for better [git-rev-list][7] and
+[git-submodule][12] support.
 
 ## Settings
 
@@ -450,3 +451,4 @@ function.
 [9]: https://getgb.io/
 [10]: https://github.com/blog/985-git-io-github-url-shortener
 [11]: https://www.manpagez.com/man/1/gm/
+[12]: https://github.com/sorin-ionescu/prezto/pull/1929
