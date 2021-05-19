@@ -27,7 +27,7 @@ url=${$(command git remote get-url "$remote")%.git}
 reference="${${2:-$(git-branch-current)}:-HEAD}"
 references=(
   HEAD
-  ${$(command git ls-remote --heads --tags "$remote" | awk '{print $2}')##refs/(heads|tags)/}
+  ${${(f)"$(git ls-remote --heads --tags "$remote")"}##*refs/(heads|tags)/}
 )
 
 if (( $references[(i)$reference] == $#references + 1 )); then
