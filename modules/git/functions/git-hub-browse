@@ -22,6 +22,12 @@ if (( $remotes[(i)$remote] == $#remotes + 1 )); then
   return 1
 fi
 
+# FIXME: Account for this: git@github.com:indrajitr/nextjs-netlify-blog-template.git
+# Also:
+# But this is more involved :(
+# git@gitlab.com:bilesh/render-posts.git
+# https://gitlab.com/bilesh/render-posts.git
+
 url=${$(command git remote get-url "$remote")%.git}
 
 reference="${${2:-$(git-branch-current)}:-HEAD}"
