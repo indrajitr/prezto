@@ -22,7 +22,7 @@ if (( $remotes[(i)$remote] == $#remotes + 1 )); then
   return 1
 fi
 
-url=$(command git remote get-url "$remote")
+url=${$(command git remote get-url "$remote")%.git}
 
 reference="${${2:-$(git-branch-current)}:-HEAD}"
 references=(
