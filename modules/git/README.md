@@ -6,7 +6,8 @@ functions and by exposing repository status information to prompts.
 This module must be loaded **before** the *completion* module so that the
 provided completion definitions are loaded.
 
-Git **1.7.2** is the [minimum required version][7].
+Git **2.11** is the minimum required version for better [git-rev-list][7] and
+[git-submodule][13] support.
 
 ## Settings
 
@@ -458,3 +459,4 @@ function.
 [10]: https://getgb.io/
 [11]: https://www.manpagez.com/man/1/gm/
 [12]: https://github.blog/2011-11-10-git-io-github-url-shortener
+[13]: https://github.com/sorin-ionescu/prezto/pull/1929

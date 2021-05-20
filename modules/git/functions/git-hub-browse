@@ -15,22 +15,25 @@ fi
 local remotes remote references reference file url
 
 remote="${1:-origin}"
-remotes=($(command git config --get-regexp 'remote.*.url' | cut -d. -f2))
+remotes=($(command git remote show))
 
 if (( $remotes[(i)$remote] == $#remotes + 1 )); then
   print "$0: remote not found: $remote" >&2
   return 1
 fi
 
-url=$(
-  command git config --get "remote.${remote}.url" \
-    | sed -En "s/(git|https?)(@|:\/\/)github.com(:|\/)(.+)\/(.+).git/https:\/\/github.com\/\4\/\5/p"
-)
+# FIXME: Account for this: git@github.com:indrajitr/nextjs-netlify-blog-template.git
+# Also:
+# But this is more involved :(
+# git@gitlab.com:bilesh/render-posts.git
+# https://gitlab.com/bilesh/render-posts.git
+
+url=${$(command git remote get-url "$remote")%.git}
 
 reference="${${2:-$(git-branch-current)}:-HEAD}"
 references=(
   HEAD
-  ${$(command git ls-remote --heads --tags "$remote" | awk '{print $2}')##refs/(heads|tags)/}
+  ${${(f)"$(git ls-remote --heads --tags "$remote")"}##*refs/(heads|tags)/}
 )
 
 if (( $references[(i)$reference] == $#references + 1 )); then
@@ -45,7 +48,7 @@ fi
 file="$3"
 
 if [[ -n "$url" ]]; then
-  url="${url}/tree/${reference}/${file}"
+  url="$url/tree/$reference/$file"
 
   if (( $+commands[$BROWSER] )); then
     "$BROWSER" "$url"
