@@ -7,12 +7,11 @@
 
 # function node-doc {
 
-if [[ -z "$BROWSER" ]]; then
+if (( $+BROWSER )); then
   print "$0: no web browser defined" >&2
   return 1
 fi
 
 # TODO: Make the sections easier to use.
-"$BROWSER" "http://nodejs.org/docs/$(node --version | sed 's/-.*//')/api/all.html#${1}"
-
+"$BROWSER" "https://nodejs.org/docs/${$(node --version 2> /dev/null)/%-*}/api/all.html#${1}"
 # }
