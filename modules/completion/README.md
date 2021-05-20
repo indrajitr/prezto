@@ -19,6 +19,10 @@ that provides completion definition.
 - `MENU_COMPLETE` do not autoselect the first completion entry.
 - `FLOW_CONTROL` disable start/stop characters in shell editor.
 
+## Variables
+
+- `LS_COLORS` used by default for Zsh [standard style][2] 'list-colors'.
+
 ## Settings
 
 ### Ignore *`/etc/hosts`* Entries
@@ -42,9 +46,10 @@ its rules and regulations. This module will be synchronized against it.
 
 ## Authors
 
-*The authors of this module should be contacted via the [issue tracker][2].*
+*The authors of this module should be contacted via the [issue tracker][3].*
 
 - [Sorin Ionescu](https://github.com/sorin-ionescu)
 
 [1]: https://github.com/zsh-users/zsh-completions
-[2]: https://github.com/sorin-ionescu/prezto/issues
+[2]: https://zsh.sourceforge.net/Doc/Release/Completion-System.html#Standard-Styles
+[3]: https://github.com/sorin-ionescu/prezto/issues
