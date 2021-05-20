@@ -12,7 +12,7 @@ pmodload 'helper'
 
 # Load manually installed pyenv into the path
 if [[ -s "${PYENV_ROOT:=$HOME/.pyenv}/bin/pyenv" ]]; then
-  path=("${PYENV_ROOT}/bin" $path)
+  path=("$PYENV_ROOT/bin" $path)
   eval "$(pyenv init - --no-rehash zsh)"
 
 # Load pyenv into the current python session
@@ -40,16 +40,15 @@ fi
 
 function _python-workon-cwd {
   # Check if this is a Git repo
-  local GIT_REPO_ROOT=""
-  local GIT_TOPLEVEL="$(git rev-parse --show-toplevel 2> /dev/null)"
-  if [[ $? == 0 ]]; then
+  local GIT_REPO_ROOT="" GIT_TOPLEVEL
+  if [[ GIT_TOPLEVEL::="$(git rev-parse --show-toplevel 2> /dev/null)" ]]; then
     GIT_REPO_ROOT="$GIT_TOPLEVEL"
   fi
   # Get absolute path, resolving symlinks
-  local PROJECT_ROOT="${PWD:A}"
+  local PROJECT_ROOT="$PWD:A"
   while [[ "$PROJECT_ROOT" != "/" && ! -e "$PROJECT_ROOT/.venv" \
-            && ! -d "$PROJECT_ROOT/.git"  && "$PROJECT_ROOT" != "$GIT_REPO_ROOT" ]]; do
-    PROJECT_ROOT="${PROJECT_ROOT:h}"
+        && ! -d "$PROJECT_ROOT/.git"  && "$PROJECT_ROOT" != "$GIT_REPO_ROOT" ]]; do
+    PROJECT_ROOT="$PROJECT_ROOT:h"
   done
   if [[ "$PROJECT_ROOT" == "/" ]]; then
     PROJECT_ROOT="."
@@ -61,7 +60,7 @@ function _python-workon-cwd {
   elif [[ -f "$PROJECT_ROOT/.venv/bin/activate" ]]; then
     ENV_NAME="$PROJECT_ROOT/.venv"
   elif [[ "$PROJECT_ROOT" != "." ]]; then
-    ENV_NAME="${PROJECT_ROOT:t}"
+    ENV_NAME="$PROJECT_ROOT:t"
   fi
   if [[ -n $CD_VIRTUAL_ENV && "$ENV_NAME" != "$CD_VIRTUAL_ENV" ]]; then
     # We've just left the repo, deactivate the environment
@@ -81,7 +80,7 @@ function _python-workon-cwd {
 }
 
 # Load auto workon cwd hook
-if zstyle -t ':prezto:module:python:virtualenv' auto-switch 'yes'; then
+if zstyle -t ':prezto:module:python:virtualenv' auto-switch; then
   # Auto workon when changing directory
   autoload -Uz add-zsh-hook
   add-zsh-hook chpwd _python-workon-cwd
@@ -89,8 +88,8 @@ fi
 
 # Load virtualenvwrapper into the shell session, if pre-requisites are met
 # and unless explicitly requested not to
-if (( $+VIRTUALENVWRAPPER_VIRTUALENV || $+commands[virtualenv] )) && \
-  zstyle -T ':prezto:module:python:virtualenv' initialize ; then
+if (( $+VIRTUALENVWRAPPER_VIRTUALENV || $+commands[virtualenv] )) \
+      && zstyle -T ':prezto:module:python:virtualenv' initialize ; then
   # Set the directory where virtual environments are stored.
   export WORKON_HOME="${WORKON_HOME:-$HOME/.virtualenvs}"
 
@@ -105,7 +104,7 @@ if (( $+VIRTUALENVWRAPPER_VIRTUALENV || $+commands[virtualenv] )) && \
   # can exist in 'pyenv' synthesized paths (e.g., '~/.pyenv/plugins') instead.
   local -a pyenv_plugins
   if (( $+commands[pyenv] )); then
-    pyenv_plugins=(${(@oM)${(f)"$(pyenv commands --no-sh 2>/dev/null)"}:#virtualenv*})
+    pyenv_plugins=(${(@oM)${(f)"$(pyenv commands --no-sh 2> /dev/null)"}:#virtualenv*})
   fi
 
   if (( $pyenv_plugins[(i)virtualenv-init] <= $#pyenv_plugins )); then
@@ -137,7 +136,7 @@ if (( $+VIRTUALENVWRAPPER_VIRTUALENV || $+commands[virtualenv] )) && \
       /usr/share/virtualenvwrapper/virtualenvwrapper(_lazy|).sh(OnN)
     )
     if (( $#virtenv_sources )); then
-      source "${virtenv_sources[1]}"
+      source "$virtenv_sources[1]"
     fi
 
     unset virtenv_sources
@@ -145,37 +144,6 @@ if (( $+VIRTUALENVWRAPPER_VIRTUALENV || $+commands[virtualenv] )) && \
 
   unset pyenv_plugins
 fi
-
-# Load PIP completion.
-# Detect and use one available from among 'pip', 'pip2', 'pip3' variants
-if [[ -n "$PYENV_ROOT" ]]; then
-  for pip in pip{,2,3}; do
-    pip_command="$(pyenv which "$pip" 2>/dev/null)"
-    [[ -n "$pip_command" ]] && break
-  done
-  unset pip
-else
-  pip_command="$commands[(i)pip(|[23])]"
-fi
-if [[ -n "$pip_command" ]]; then
-  cache_file="${XDG_CACHE_HOME:-$HOME/.cache}/prezto/pip-cache.zsh"
-
-  if [[ "$pip_command" -nt "$cache_file" \
-        || "${ZDOTDIR:-$HOME}/.zpreztorc" -nt "$cache_file" \
-        || ! -s "$cache_file" ]]; then
-    mkdir -p "$cache_file:h"
-    # pip is slow; cache its output. And also support 'pip2', 'pip3' variants
-    "$pip_command" completion --zsh \
-      | sed -e "s/\(compctl -K [-_[:alnum:]]* pip\).*/\1{,2,3}{,.{0..9}}/" \
-      >! "$cache_file" \
-      2> /dev/null
-  fi
-
-  source "$cache_file"
-
-  unset cache_file
-fi
-unset pip_command
 
 # Load conda into the shell session, if requested
 zstyle -T ':prezto:module:python' conda-init
