@@ -29,8 +29,8 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
 # Set the Prezto modules to load (browse modules).
 # The order matters.
-# The last four should be 'autosuggestions', 'syntax-highlighting',
-# 'history-substring-search' and 'prompt' in that relative order.
+# The last four should be 'syntax-highlighting', 'history-substring-search',
+# 'autosuggestions' and 'prompt' in that relative order.
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
@@ -53,9 +53,9 @@ zstyle ':prezto:load' pmodule \
   'java' \
   'completion' \
   'fasd' \
-  'autosuggestions' \
   'syntax-highlighting' \
   'history-substring-search' \
+  'autosuggestions' \
   'prompt'
 
 #
