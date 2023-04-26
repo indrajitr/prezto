@@ -14,7 +14,7 @@
 # paste had a regression. Additionally, 5.2 added bracketed-paste-url-magic
 # which is generally better than url-quote-magic so we load that when possible.
 autoload -Uz is-at-least
-if [[ ${ZSH_VERSION} != 5.1.1 && ${TERM} != "dumb" ]]; then
+if [[ $ZSH_VERSION != 5.1.1 && $TERM != 'dumb' ]]; then
   if is-at-least 5.2; then
     autoload -Uz bracketed-paste-url-magic
     zle -N bracketed-paste bracketed-paste-url-magic
@@ -43,23 +43,23 @@ unsetopt MAIL_WARNING       # Don't print a warning message if a mail file has b
 # Jobs
 #
 
-setopt LONG_LIST_JOBS     # List jobs in the long format by default.
-setopt AUTO_RESUME        # Attempt to resume existing job before creating a new process.
-setopt NOTIFY             # Report status of background jobs immediately.
-unsetopt BG_NICE          # Don't run all background jobs at a lower priority.
-unsetopt HUP              # Don't kill jobs on shell exit.
-unsetopt CHECK_JOBS       # Don't report on jobs when shell exit.
+setopt LONG_LIST_JOBS       # List jobs in the long format by default.
+setopt AUTO_RESUME          # Attempt to resume existing job before creating a new process.
+setopt NOTIFY               # Report status of background jobs immediately.
+unsetopt BG_NICE            # Don't run all background jobs at a lower priority.
+unsetopt HUP                # Don't kill jobs on shell exit.
+unsetopt CHECK_JOBS         # Don't report on jobs when shell exit.
 
 #
 # Termcap
 #
 
 if zstyle -t ':prezto:environment:termcap' color; then
-  export LESS_TERMCAP_mb=$'\E[01;31m'      # Begins blinking.
-  export LESS_TERMCAP_md=$'\E[01;31m'      # Begins bold.
-  export LESS_TERMCAP_me=$'\E[0m'          # Ends mode.
-  export LESS_TERMCAP_se=$'\E[0m'          # Ends standout-mode.
-  export LESS_TERMCAP_so=$'\E[00;47;30m'   # Begins standout-mode.
-  export LESS_TERMCAP_ue=$'\E[0m'          # Ends underline.
-  export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
+  export LESS_TERMCAP_mb=$'\E[01;31m'       # Begins blinking.
+  export LESS_TERMCAP_md=$'\E[01;31m'       # Begins bold.
+  export LESS_TERMCAP_me=$'\E[0m'           # Ends mode.
+  export LESS_TERMCAP_se=$'\E[0m'           # Ends standout-mode.
+  export LESS_TERMCAP_so=$'\E[00;47;30m'    # Begins standout-mode.
+  export LESS_TERMCAP_ue=$'\E[0m'           # Ends underline.
+  export LESS_TERMCAP_us=$'\E[01;32m'       # Begins underline.
 fi
