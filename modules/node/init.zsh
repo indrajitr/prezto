@@ -27,7 +27,7 @@ elif (( $#local_nvm_paths )); then
 
 # Load package manager installed nvm into the shell session.
 elif (( $+commands[brew] )) \
-      && [[ -d "${nvm_path::="$(brew --prefix 2> /dev/null)"/opt/nvm}" ]]; then
+      && [[ -d ${nvm_path::="${HOMEBREW_REPOSITORY:-$commands[brew]:A:h:h}/opt/nvm"} ]]; then
   source "$nvm_path/nvm.sh" --no-use
 fi
 
