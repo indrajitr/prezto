@@ -79,7 +79,9 @@ zstyle ':prezto:module:autosuggestions:color' found 'bg=8,fg=1'
 #
 
 # Set the characters that are considered to be part of a word.
-# zstyle ':prezto:module:editor' wordchars '*?_-.[]~&;!#$%^(){}<>'
+# Instead of redefining 'WORDCHARS', we remove some commonly used word
+# separators from the default (which is '*?_-.[]~=/&;!#$%^(){}<>').
+zstyle ':prezto:module:editor' wordchars "${WORDCHARS//[-.=\/;]}"
 
 # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':prezto:module:editor' key-bindings 'emacs'
