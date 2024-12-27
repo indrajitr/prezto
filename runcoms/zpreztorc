@@ -64,8 +64,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the query found color.
-# (bg=bright black,fg=red), suitable for Solarized Dark terminal
-zstyle ':prezto:module:autosuggestions:color' found 'bg=8,fg=1'
+# zstyle ':prezto:module:autosuggestions:color' found ''
 
 #
 # Completions
